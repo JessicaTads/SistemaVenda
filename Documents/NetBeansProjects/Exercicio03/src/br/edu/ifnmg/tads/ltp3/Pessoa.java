@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.tads.ltp3;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,33 +14,32 @@ import java.util.List;
  */
 public class Pessoa {
 
-    private int CodPessoa;
+    private int codigo;
     private List<Email> email;
-    private String Nome;
+    private String nome;
     private List<Endereco> endereco;
 
-    public Pessoa(int CodPessoa, List<Email> email, String Nome, List<Endereco> endereco) {
-        this.CodPessoa = CodPessoa;
+    public Pessoa(int codigo, List<Email> email, String nome, List<Endereco> endereco) {
+        this.codigo = codigo;
         this.email = email;
-        this.Nome = Nome;
+        this.nome = nome;
         this.endereco = endereco;
     }
     
-     public Pessoa() {
-        this.CodPessoa = 0;
-        this.email = new LinkedList<>();
-        this.Nome = "";
-        this.endereco = new LinkedList<>();
+    public Pessoa() {
+        this.codigo = 0;
+        this.email = new ArrayList<>();
+        this.nome = "";
+        this.endereco = new ArrayList<>();
     }
     
-    
-
-    public int getCodPessoa() {
-        return CodPessoa;
+  
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCodPessoa(int CodPessoa) {
-        this.CodPessoa = CodPessoa;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public List<Email> getEmail() {
@@ -51,11 +51,11 @@ public class Pessoa {
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
-    public void setNome(String Nome) {
-        this.Nome = Nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public List<Endereco> getEndereco() {
@@ -65,6 +65,7 @@ public class Pessoa {
     public void setEndereco(List<Endereco> endereco) {
         this.endereco = endereco;
     }
+
     
     
 }

@@ -4,52 +4,55 @@
  */
 package br.edu.ifnmg.tads.ltp3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Jessica
  */
 public class Email {
-   private int CodEmail;
-   private String NomeEmail;
-   private int CodPessoa;
+   private int codigo;
+   private String email;
+   private Pessoa pessoa;
 
-
-    public Email(int CodEmail, String NomeEmail, int CodPessoa) {
-        this.CodEmail = CodEmail;
-        this.NomeEmail = NomeEmail;
-        this.CodPessoa = CodPessoa;
+    public Email(int codigo, String email, Pessoa pessoa) {
+        this.codigo = codigo;
+        this.email = email;
+        this.pessoa = pessoa;
     }
-
+    
     public Email() {
-        this.CodEmail = 0;
-        this.NomeEmail = "";
-        this.CodPessoa = 0;
+        this.codigo = 0;
+        this.email = "";
+        this.pessoa = pessoa;
     }
    
-    public int getCodEmail() {
-        return CodEmail;
+
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCodEmail(int CodEmail) {
-        this.CodEmail = CodEmail;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public String getNomeEmail() {
-        return NomeEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNomeEmail(String NomeEmail) {
-        this.NomeEmail = NomeEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getCodPessoa() {
-        return CodPessoa;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setCodPessoa(int CodPessoa) {
-        this.CodPessoa = CodPessoa;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
-   
-   
+
+    
 }
 

@@ -10,16 +10,30 @@ package br.edu.ifnmg.tads.ltp3;
  */
 public class Produto {
     
-    private int CodProduto;
+    private int codigo;
     private String Nome;
     private double Preco;
 
-    public int getCodProduto() {
-        return CodProduto;
+    public Produto(int Codigo, String Nome, double Preco) {
+        this.codigo = Codigo;
+        this.Nome = Nome;
+        this.Preco = Preco;
+    }
+    
+    public Produto() {
+        this.codigo = 0;
+        this.Nome = "";
+        this.Preco = 0.0;
+    }
+    
+
+ 
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCodProduto(int CodProduto) {
-        this.CodProduto = CodProduto;
+    public void setCodigo(int Codigo) {
+        this.codigo = Codigo;
     }
 
     public String getNome() {
@@ -37,7 +51,7 @@ public class Produto {
     public void setPreco(double Preco) {
         this.Preco = Preco;
     }
+
     
-       
     
 }

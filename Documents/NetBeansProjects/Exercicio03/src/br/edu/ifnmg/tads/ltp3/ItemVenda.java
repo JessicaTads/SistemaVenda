@@ -10,32 +10,45 @@ package br.edu.ifnmg.tads.ltp3;
  */
 public class ItemVenda{
     
-    private int CodItemVenda;
-    private int Quantidade;
-    private int CodProduto;
+    private int codigo;
+    private int quantidade;
+    private Produto produto;
 
-    public int getCodItemVenda() {
-        return CodItemVenda;
+    public ItemVenda(int codigo, int quantidade, Produto produto) {
+        this.codigo = codigo;
+        this.quantidade = quantidade;
+        this.produto = produto;
+    }
+    
+    public ItemVenda() {
+        this.codigo = 0;
+        this.quantidade = 0;
+        this.produto = produto;
+    }
+    
+
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCodItemVenda(int CodItemVenda) {
-        this.CodItemVenda = CodItemVenda;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public int getQuantidade() {
-        return Quantidade;
+        return quantidade;
     }
 
-    public void setQuantidade(int Quantidade) {
-        this.Quantidade = Quantidade;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
-    public int getCodProduto() {
-        return CodProduto;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setCodProduto(int CodProduto) {
-        this.CodProduto = CodProduto;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     

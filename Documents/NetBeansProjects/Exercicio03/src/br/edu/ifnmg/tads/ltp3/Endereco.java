@@ -10,51 +10,67 @@ package br.edu.ifnmg.tads.ltp3;
  */
 public class Endereco {
     
-    private int CodEndereco;
-    private String Rua;
-    private String Cidade;
-    private String Bairro;
-    private int Cep;
+    private int codigo;
+    private String rua;
+    private String cidade;
+    private String bairro;
+    private int cep;
 
-    public int getCodEndereco() {
-        return CodEndereco;
+    public Endereco(int codigo, String rua, String cidade, String bairro, int cep) {
+        this.codigo = codigo;
+        this.rua = rua;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.cep = cep;
+    }
+    
+    public Endereco() {
+        this.codigo = 0;
+        this.rua = "";
+        this.cidade = "";
+        this.bairro = "";
+        this.cep = 0;
+    }
+    
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCodEndereco(int CodEndereco) {
-        this.CodEndereco = CodEndereco;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getRua() {
-        return Rua;
+        return rua;
     }
 
-    public void setRua(String Rua) {
-        this.Rua = Rua;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     public String getCidade() {
-        return Cidade;
+        return cidade;
     }
 
-    public void setCidade(String Cidade) {
-        this.Cidade = Cidade;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public String getBairro() {
-        return Bairro;
+        return bairro;
     }
 
-    public void setBairro(String Bairro) {
-        this.Bairro = Bairro;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
     public int getCep() {
-        return Cep;
+        return cep;
     }
 
-    public void setCep(int Cep) {
-        this.Cep = Cep;
+    public void setCep(int cep) {
+        this.cep = cep;
     }
-    
-    
+
+   
 }
