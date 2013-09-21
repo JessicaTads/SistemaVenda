@@ -80,14 +80,6 @@ public class Telefone {
     public String toString() {
         return "Telefone{" + "codigo=" + codigo + ", Telefone=" + Telefone + '}';
     }
-
-    int getTelefone() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-   
-    
-    
     
     
 }
