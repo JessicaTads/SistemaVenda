@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1898f3ff-90c8-4e81-a164-1d2d0577278a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="36"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * From Produto]]>
+	</queryString>
+	<field name="Nome" class="java.lang.String"/>
+	<field name="Tipo" class="java.lang.String"/>
+	<field name="Preco" class="java.lang.Double"/>
+	<variable name="Tipo_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{Tipo}]]></variableExpression>
+	</variable>
+	<variable name="Nome_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{Nome}]]></variableExpression>
+	</variable>
+	<group name="Nome">
+		<groupExpression><![CDATA[$F{Nome}]]></groupExpression>
+	</group>
+	<group name="Preco">
+		<groupExpression><![CDATA[$F{Preco}]]></groupExpression>
+	</group>
+	<group name="Tipo">
+		<groupExpression><![CDATA[$F{Tipo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement uuid="65a2ae0c-084c-4840-a09f-6e1dd71e6f04" x="218" y="20" width="118" height="31"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Produtos]]></textFieldExpression>
+			</textField>
+			<ellipse>
+				<reportElement uuid="84666d65-191e-4361-b1e0-85970a439462" x="415" y="20" width="100" height="31"/>
+			</ellipse>
+			<ellipse>
+				<reportElement uuid="8df6d54d-c839-4c23-acd2-53e757e61b8a" x="38" y="20" width="100" height="31"/>
+			</ellipse>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement uuid="68c1e569-f610-466d-8bcc-efac0cd9e515" x="218" y="26" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
