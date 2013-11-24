@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifnmg.tads.ltp3;
+package br.edu.ifnmg.tads.SistemaVenda;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -14,18 +14,19 @@ import java.util.List;
 public class Email {
    private int codigo;
    private String email;
-   private Pessoa pessoa;
+  
+    
 
     public Email(int codigo, String email, Pessoa pessoa) {
         this.codigo = codigo;
         this.email = email;
-        this.pessoa = pessoa;
+      
     }
     
     public Email() {
         this.codigo = 0;
         this.email = "";
-        this.pessoa = pessoa;
+        
     }
    
 
@@ -34,7 +35,9 @@ public class Email {
     }
 
     public void setCodigo(int codigo) {
+        
         this.codigo = codigo;
+        
     }
 
     public String getEmail() {
@@ -42,17 +45,18 @@ public class Email {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Pattern testeemail = Pattern.compile("[a-z A-Z 0-9-.\\d]{3,250}@[\\d\\w]+[\\w]+");
+         Matcher busca = testeemail.matcher(email);
+        
+        if (busca.matches()){
+          this.email = email;
+        } else{
+          System.out.println("Nao Achou!");
+        }
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
-
+    
+    
     
 }
 

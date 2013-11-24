@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifnmg.tads.ltp3;
+package br.edu.ifnmg.tads.SistemaVenda;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +14,16 @@ import java.util.List;
 public class Venda {
   
     private int codigo;
-    private List<ItemVenda> ItemVenda;
+    private List<ItemVenda> ItemVendas;
 
-    public Venda(int Codigo, List<ItemVenda> ItemVenda) {
+    public Venda(int Codigo, List<ItemVenda> ItemVendas) {
         this.codigo = Codigo;
-        this.ItemVenda = ItemVenda;
+        this.ItemVendas = ItemVendas;
     }
     
     public Venda() {
         this.codigo = 0;
-        this.ItemVenda = ItemVenda;
+        this.ItemVendas = ItemVendas;
     }
    
     public int getCodigo() {
@@ -35,11 +35,11 @@ public class Venda {
     }
 
     public List<ItemVenda> getItemVenda() {
-        return ItemVenda;
+        return ItemVendas;
     }
 
-    public void setItemVenda(List<ItemVenda> ItemVenda) {
-        this.ItemVenda = ItemVenda;
+    public void setItemVendas(List<ItemVenda> ItemVendas) {
+        this.ItemVendas = ItemVendas;
     }
 
    
