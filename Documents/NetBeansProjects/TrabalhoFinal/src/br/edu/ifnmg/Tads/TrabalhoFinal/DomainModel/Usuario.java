@@ -4,7 +4,6 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
-
 import java.util.List;
 import java.util.Objects;
 
@@ -17,22 +16,20 @@ public class Usuario {
     private int codigo;
     private String login;
     private String senha;
-    private List<Secao> secoes;
     private Funcionario funcionario;
 
-    public Usuario(int codigo, String login, String senha, List<Secao> secoes, Funcionario funcionario) {
+    public Usuario(int codigo, String login, String senha, Funcionario funcionario) {
         this.codigo = codigo;
         this.login = login;
         this.senha = senha;
-        this.secoes = secoes;
         this.funcionario = funcionario;
     }
-    
+
     public Usuario() {
         this.codigo = codigo;
         this.login = login;
         this.senha = senha;
-        this.secoes = secoes;
+
         this.funcionario = funcionario;
     }
 
@@ -60,14 +57,6 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public List<Secao> getSecoes() {
-        return secoes;
-    }
-
-    public void setSecoes(List<Secao> secoes) {
-        this.secoes = secoes;
-    }
-
     public Funcionario getFuncionario() {
         return funcionario;
     }
@@ -75,7 +64,7 @@ public class Usuario {
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -110,10 +99,4 @@ public class Usuario {
     public String toString() {
         return funcionario.toString();
     }
-    
-    
-    
-    
-    
 }
-

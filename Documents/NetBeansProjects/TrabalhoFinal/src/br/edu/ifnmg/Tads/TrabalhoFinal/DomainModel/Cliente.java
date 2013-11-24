@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Jessica
  */
-public class Cliente {
+public class Cliente extends Pessoa{
 
     private int codigo;
     private Pessoa pessoa;

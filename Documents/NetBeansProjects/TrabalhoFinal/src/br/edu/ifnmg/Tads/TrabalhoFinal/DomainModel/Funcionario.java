@@ -4,14 +4,13 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
-import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Pessoa;
 import java.util.Objects;
 
 /**
  *
  * @author Jessica
  */
-public class Funcionario {
+public class Funcionario extends Pessoa{
    
     private int codigo;
     private String especialidade;
@@ -33,8 +32,12 @@ public class Funcionario {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigo(int codigo) throws Exception {
+        if (codigo >= 0) {
+            this.codigo = codigo;
+        } else {
+            throw new Exception("Codigo Inválido!");
+        }
     }
 
     public String getEspecialidade() {

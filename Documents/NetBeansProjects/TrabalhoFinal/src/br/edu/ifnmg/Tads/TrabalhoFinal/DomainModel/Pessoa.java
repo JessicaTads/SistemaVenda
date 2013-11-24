@@ -4,7 +4,6 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,19 +18,19 @@ import java.util.regex.Pattern;
  * @author Jessica
  */
 public class Pessoa {
-    
+
     private int codigo;
     private String CPF;
     private String nome;
     private String RG;
     private Date datanascimento;
     private List<Endereco> enderecos;
-    private List<Email>emails;
-    private List<Telefone>telefones;
+    private List<Email> emails;
+    private List<Telefone> telefones;
 
     public Pessoa(int codigo, String CPF, String nome, String RG, Date datanascimento, List<Endereco> enderecos, List<Email> emails, List<Telefone> telefones) {
         this.codigo = codigo;
-        this.CPF= CPF;
+        this.CPF = CPF;
         this.nome = nome;
         this.RG = RG;
         this.datanascimento = datanascimento;
@@ -39,6 +38,7 @@ public class Pessoa {
         this.emails = emails;
         this.telefones = telefones;
     }
+
     public Pessoa() {
         this.codigo = 0;
         this.CPF = "";
@@ -46,11 +46,11 @@ public class Pessoa {
         this.RG = "";
         this.datanascimento = new Date();
         this.enderecos = new ArrayList<Endereco>();
-        this.emails =  new ArrayList<Email>();
+        this.emails = new ArrayList<Email>();
         this.telefones = new ArrayList<Telefone>();
     }
-    
-     public String getNome() {
+
+    public String getNome() {
         return nome;
     }
 
@@ -97,7 +97,7 @@ public class Pessoa {
         return CPF;
     }
 
-    public void setCPF(String CPF) throws Exception{
+    public void setCPF(String CPF) throws Exception {
         Pattern Pcpf = Pattern.compile("");
         Matcher verificacao = Pcpf.matcher(CPF);
 
@@ -123,7 +123,6 @@ public class Pessoa {
             throw new Exception("Entrada para o campo RG INVALIDA!");
         }
     }
-
 
     public void addEmail(Email email) {
         if (!emails.contains(email)) {
@@ -209,18 +208,10 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return  nome ;
+        return nome;
     }
 
     void setDataNascimento(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }
