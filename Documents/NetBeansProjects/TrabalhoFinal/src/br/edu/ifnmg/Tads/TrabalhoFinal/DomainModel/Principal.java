@@ -21,17 +21,17 @@ public class Principal {
         Telefone telefone = new Telefone();
 
 
-        pessoa.setNome("Paula");
+        pessoa.setNome("Jefferson");
         pessoa.setDataNascimento(new Date());
         pessoa.setCPF("");
         pessoa.setRG("");
-        email.setEmail("Paula@yahoo.com");
+        email.setEmail("Jefferson@yahoo.com");
         endereco.setBairro("Real");
-        endereco.setCidade("Minas ");
-        endereco.setRua("Rua c");
+        endereco.setCidade("Guanambi ");
+        endereco.setRua("Rua 17");
         endereco.setNumero(678);
-        telefone.setDDD(38);
-        telefone.setTelefone(91615777);
+        telefone.setDDD(77);
+        telefone.setTelefone(9123232);
 
 
         pessoa.addEmail(email);
