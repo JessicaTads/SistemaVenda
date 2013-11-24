@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class Pessoa {
     
     private int codigo;
-    private int CPF;
+    private String CPF;
     private String nome;
     private String RG;
     private Date datanascimento;
@@ -29,9 +29,9 @@ public class Pessoa {
     private List<Email>emails;
     private List<Telefone>telefones;
 
-    public Pessoa(int codigo, int CPF, String nome, String RG, Date datanascimento, List<Endereco> enderecos, List<Email> emails, List<Telefone> telefones) {
+    public Pessoa(int codigo, String CPF, String nome, String RG, Date datanascimento, List<Endereco> enderecos, List<Email> emails, List<Telefone> telefones) {
         this.codigo = codigo;
-        this.CPF = CPF;
+        this.CPF= CPF;
         this.nome = nome;
         this.RG = RG;
         this.datanascimento = datanascimento;
@@ -41,7 +41,7 @@ public class Pessoa {
     }
     public Pessoa() {
         this.codigo = 0;
-        this.CPF = 0;
+        this.CPF = "";
         this.nome = "";
         this.RG = "";
         this.datanascimento = new Date();
@@ -70,12 +70,14 @@ public class Pessoa {
         return datanascimento;
     }
 
-    public void setDataNascimento(Date datanascimento) {
+    public void setDataNascimento(Date datanascimento) throws Exception {
         Calendar calendario = GregorianCalendar.getInstance();
         calendario.set(1900, 1, 1);
 
         if (calendario.getTime().before(datanascimento)) {
             this.datanascimento = datanascimento;
+        } else {
+            throw new Exception("Valor passado para o campo 'Data' é invalido!");
         }
     }
 
@@ -91,20 +93,35 @@ public class Pessoa {
         }
     }
 
-    public int getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setCPF(int CPF) {
-        this.CPF = CPF;
+    public void setCPF(String CPF) throws Exception{
+        Pattern Pcpf = Pattern.compile("");
+        Matcher verificacao = Pcpf.matcher(CPF);
+
+        if (verificacao.matches()) {
+            this.CPF = CPF;
+        } else {
+            throw new Exception("Entrada para o campo CPF INVALIDA!");
+        }
+
     }
 
     public String getRG() {
         return RG;
     }
 
-    public void setRG(String RG) {
-        this.RG = RG;
+    public void setRG(String RG) throws Exception {
+        Pattern PRG = Pattern.compile("");
+        Matcher verificacao = PRG.matcher(RG);
+
+        if (verificacao.matches()) {
+            this.RG = RG;
+        } else {
+            throw new Exception("Entrada para o campo RG INVALIDA!");
+        }
     }
 
 

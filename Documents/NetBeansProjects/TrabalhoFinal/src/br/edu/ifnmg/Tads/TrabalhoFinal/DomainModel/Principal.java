@@ -4,11 +4,9 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
-import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Email;
-import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Endereco;
-import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Pessoa;
-import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Telefone;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.PessoaDAO;
+import java.util.Date;
+
 
 
 /**
@@ -25,22 +23,22 @@ public class Principal {
         Telefone telefone = new Telefone();
 
         
-        pessoa.setNome("Dayane");
-        pessoa.setDataNascimento("13/09/1991");
-        pessoa.setCPF(11111111);
-        pessoa.setRG("1212121");
-        //email.setEmail("Day@yahoo.com");
-       // endereco.setBairro("Realengo");
-        //endereco.setCidade("Rio de Janeiro");
-        //endereco.setRua("Rua A");
-        //endereco.setNumero(12);
-        //telefone.setDDD(38);
-       // telefone.setTelefone(69154205);
+        pessoa.setNome("Paula");
+        pessoa.setDataNascimento(new Date());
+        pessoa.setCPF("");
+        pessoa.setRG("");
+        email.setEmail("Paula@yahoo.com");
+        endereco.setBairro("Real");
+        endereco.setCidade("Minas ");
+        endereco.setRua("Rua c");
+        endereco.setNumero(678);
+        telefone.setDDD(38);
+        telefone.setTelefone(91615777);
         
         
-       // pessoa.addEmail(email);
-        //pessoa.addEndereco(endereco);
-        //pessoa.addTelefone(telefone);
+        pessoa.addEmail(email);
+        pessoa.addEndereco(endereco);
+        pessoa.addTelefone(telefone);
         
         PessoaDAO dao = new PessoaDAO();
         

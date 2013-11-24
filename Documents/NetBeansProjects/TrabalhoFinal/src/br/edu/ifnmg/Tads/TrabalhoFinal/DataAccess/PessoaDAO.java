@@ -4,7 +4,6 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess;
 
-import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.DAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Email;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Endereco;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Pessoa;
@@ -29,15 +28,20 @@ public class PessoaDAO extends DAO {
     public boolean Salvar(Pessoa obj) {
         if (obj.getCodigo() == 0) {
             try {
-                PreparedStatement sql = getConexao().prepareStatement("insert into pessoa(Nome,DataNasc) values(?,?)");
+                PreparedStatement sql = getConexao().prepareStatement("insert into pessoa(Nome,DataNasc,CPF,RG,ativo) values(?,?,?,?,?)");
                 sql.setString(1, obj.getNome());
                 sql.setDate(2, new java.sql.Date(obj.getDataNascimento().getTime()));
+                sql.setString(3, obj.getCPF());
+                sql.setString(4, obj.getRG());
+                sql.setInt(5, 1);
 
                 sql.executeUpdate();
 
-                PreparedStatement sql2 = getConexao().prepareStatement("select CodPessoa from pessoa where Nome = ? and DataNasc = ?");
+                PreparedStatement sql2 = getConexao().prepareStatement("select CodPessoa from pessoa where Nome = ? and DataNasc = ? and CPF = ? and RG = ?");
                 sql2.setString(1, obj.getNome());
                 sql2.setDate(2, new java.sql.Date(obj.getDataNascimento().getTime()));
+                sql2.setString(3, obj.getCPF());
+                sql2.setString(4, obj.getRG());
                 ResultSet resultado = sql2.executeQuery();
                 if (resultado.next()) {
                     obj.setCodigo(resultado.getInt("CodPessoa"));
@@ -62,7 +66,7 @@ public class PessoaDAO extends DAO {
         } else {
             try {
                 Connection con = getConexao();
-                PreparedStatement sql = con.prepareStatement("update pessoa set Nome=?, DataNasc=? where CodPessoa=?");
+                PreparedStatement sql = con.prepareStatement("update pessoa set Nome=?, DataNasc=?, RG=?, CPF=? where CodPessoa=?");
                 sql.setString(1, obj.getNome());
                 sql.setDate(2, new java.sql.Date(obj.getDataNascimento().getTime()));
                 sql.setInt(3, obj.getCodigo());
@@ -79,9 +83,10 @@ public class PessoaDAO extends DAO {
     private void SalvarEmail(Pessoa pessoa, Email obj) {
         if (obj.getCodigo() == 0) {
             try {
-                PreparedStatement sql = getConexao().prepareStatement("insert into email(codPessoa,email) values(?,?)");
+                PreparedStatement sql = getConexao().prepareStatement("insert into email(codPessoa,email,ativo) values(?,?,?)");
                 sql.setInt(1, pessoa.getCodigo());
                 sql.setString(2, obj.getEmail());
+                sql.setInt(3, 1);
                 sql.executeUpdate();
 
             } catch (Exception ex) {
@@ -103,25 +108,26 @@ public class PessoaDAO extends DAO {
     private void SalvarEndereco(Pessoa pessoa, Endereco obj) {
         if (obj.getCodigo() == 0) {
             try {
-                PreparedStatement sql = getConexao().prepareStatement("insert into endereco(codPessoa,numero,rua,bairro,cidade,cep,estado,pais) values(?,?,?,?,?,?,?,?)");
+                PreparedStatement sql = getConexao().prepareStatement("insert into enderecos(codPessoa,numero,rua,bairro,cidade,ativo) values(?,?,?,?,?,?)");
                 sql.setInt(1, pessoa.getCodigo());
                 sql.setInt(2, obj.getNumero());
                 sql.setString(3, obj.getRua());
                 sql.setString(4, obj.getBairro());
                 sql.setString(5, obj.getCidade());
+                sql.setInt(6, 1);
                 sql.executeUpdate();
             } catch (Exception ex) {
                 System.err.println(ex.getMessage());
             }
         } else {
             try {
-                PreparedStatement sql = getConexao().prepareStatement("update endereco set codPessoa=?, numero=?, rua=?, bairro=?,cidade=?  where codEndereco = ?");
+                PreparedStatement sql = getConexao().prepareStatement("update enderecos set codPessoa=?, numero=?, rua=?, bairro=?,cidade=?  where codEndereco = ?");
                 sql.setInt(1, pessoa.getCodigo());
                 sql.setInt(2, obj.getNumero());
                 sql.setString(3, obj.getRua());
                 sql.setString(4, obj.getBairro());
                 sql.setString(5, obj.getCidade());
-                sql.setInt(9, obj.getCodigo());
+                sql.setInt(6, obj.getCodigo());
                 sql.executeQuery();
             } catch (Exception ex) {
                 System.err.println(ex.getMessage());
@@ -132,10 +138,11 @@ public class PessoaDAO extends DAO {
     private void SalvarTelefone(Pessoa pessoa, Telefone obj) {
         if (obj.getCodigo() == 0) {
             try {
-                PreparedStatement sql = getConexao().prepareStatement("insert into telefone(codPessoa, DDD, telefone) values(?,?,?)");
+                PreparedStatement sql = getConexao().prepareStatement("insert into telefones(codPessoa, DDD, telefone,ativo) values(?,?,?,?)");
                 sql.setInt(1, pessoa.getCodigo());
                 sql.setInt(2, obj.getDDD());
                 sql.setInt(3, obj.getTelefone());
+                sql.setInt(4, 1);
                 sql.executeUpdate();
 
             } catch (Exception ex) {
@@ -143,11 +150,11 @@ public class PessoaDAO extends DAO {
             }
         } else {
             try {
-                PreparedStatement sql = getConexao().prepareStatement("update telefone set codPessoa = ?, DDD= ?, Telefone = ? where codTelefone=?");
+                PreparedStatement sql = getConexao().prepareStatement("update telefones set codPessoa = ?, DDD= ?, Telefone = ? where codTelefone=?");
                 sql.setInt(1, pessoa.getCodigo());
                 sql.setInt(2, obj.getDDD());
                 sql.setInt(3, obj.getTelefone());
-                sql.setInt(3, obj.getCodigo());
+                sql.setInt(4, obj.getCodigo());
                 sql.executeQuery();
             } catch (Exception ex) {
                 System.err.println(ex.getMessage());
