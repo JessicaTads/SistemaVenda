@@ -26,21 +26,246 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuBar5 = new javax.swing.JMenuBar();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuBar6 = new javax.swing.JMenuBar();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
+        jMenuBar7 = new javax.swing.JMenuBar();
+        jMenu12 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
+        jMenuBar8 = new javax.swing.JMenuBar();
+        jMenu14 = new javax.swing.JMenu();
+        jMenu15 = new javax.swing.JMenu();
+        jMenuBar9 = new javax.swing.JMenuBar();
+        jMenu16 = new javax.swing.JMenu();
+        jMenu17 = new javax.swing.JMenu();
+        jMenuBar10 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu18 = new javax.swing.JMenu();
+        jMenuBar11 = new javax.swing.JMenuBar();
+        jMenu19 = new javax.swing.JMenu();
+        jMenu20 = new javax.swing.JMenu();
+        jMenuBar12 = new javax.swing.JMenuBar();
+        jMenu21 = new javax.swing.JMenu();
+        jMenu22 = new javax.swing.JMenu();
+        jMenuBar13 = new javax.swing.JMenuBar();
+        jMenu23 = new javax.swing.JMenu();
+        jMenu24 = new javax.swing.JMenu();
+        jMenuBar14 = new javax.swing.JMenuBar();
+        jMenu26 = new javax.swing.JMenu();
+        jMenu27 = new javax.swing.JMenu();
+        jMenuBar15 = new javax.swing.JMenuBar();
+        jMenu28 = new javax.swing.JMenu();
+        jMenu29 = new javax.swing.JMenu();
+        jMenuBar16 = new javax.swing.JMenuBar();
+        jMenu30 = new javax.swing.JMenu();
+        jMenu31 = new javax.swing.JMenu();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        mnuLogin = new javax.swing.JMenu();
+        SAIR = new javax.swing.JRadioButtonMenuItem();
+        mnuSAIR = new javax.swing.JMenuItem();
+        mnuForncedor = new javax.swing.JMenu();
+        mnuCliente = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuFuncionario = new javax.swing.JMenuItem();
+        mnuProduto = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu32 = new javax.swing.JMenu();
+        jMenu25 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu33 = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu3.setText("Edit");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("File");
+        jMenuBar3.add(jMenu4);
+
+        jMenu5.setText("Edit");
+        jMenuBar3.add(jMenu5);
+
+        jMenu6.setText("File");
+        jMenuBar4.add(jMenu6);
+
+        jMenu7.setText("Edit");
+        jMenuBar4.add(jMenu7);
+
+        jMenu8.setText("File");
+        jMenuBar5.add(jMenu8);
+
+        jMenu9.setText("Edit");
+        jMenuBar5.add(jMenu9);
+
+        jMenu10.setText("File");
+        jMenuBar6.add(jMenu10);
+
+        jMenu11.setText("Edit");
+        jMenuBar6.add(jMenu11);
+
+        jMenu12.setText("File");
+        jMenuBar7.add(jMenu12);
+
+        jMenu13.setText("Edit");
+        jMenuBar7.add(jMenu13);
+
+        jMenu14.setText("File");
+        jMenuBar8.add(jMenu14);
+
+        jMenu15.setText("Edit");
+        jMenuBar8.add(jMenu15);
+
+        jMenu16.setText("File");
+        jMenuBar9.add(jMenu16);
+
+        jMenu17.setText("Edit");
+        jMenuBar9.add(jMenu17);
+
+        jMenu2.setText("File");
+        jMenuBar10.add(jMenu2);
+
+        jMenu18.setText("Edit");
+        jMenuBar10.add(jMenu18);
+
+        jMenu19.setText("File");
+        jMenuBar11.add(jMenu19);
+
+        jMenu20.setText("Edit");
+        jMenuBar11.add(jMenu20);
+
+        jMenu21.setText("File");
+        jMenuBar12.add(jMenu21);
+
+        jMenu22.setText("Edit");
+        jMenuBar12.add(jMenu22);
+
+        jMenu23.setText("File");
+        jMenuBar13.add(jMenu23);
+
+        jMenu24.setText("Edit");
+        jMenuBar13.add(jMenu24);
+
+        jMenu26.setText("File");
+        jMenuBar14.add(jMenu26);
+
+        jMenu27.setText("Edit");
+        jMenuBar14.add(jMenu27);
+
+        jMenu28.setText("File");
+        jMenuBar15.add(jMenu28);
+
+        jMenu29.setText("Edit");
+        jMenuBar15.add(jMenu29);
+
+        jMenu30.setText("File");
+        jMenuBar16.add(jMenu30);
+
+        jMenu31.setText("Edit");
+        jMenuBar16.add(jMenu31);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        mnuLogin.setText("Sistema");
+
+        SAIR.setSelected(true);
+        SAIR.setText("Login");
+        mnuLogin.add(SAIR);
+
+        mnuSAIR.setText("SAIR");
+        mnuSAIR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSAIRActionPerformed(evt);
+            }
+        });
+        mnuLogin.add(mnuSAIR);
+
+        jMenuBar1.add(mnuLogin);
+
+        mnuForncedor.setText("Cadastros");
+
+        mnuCliente.setText("Clientes");
+        mnuCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuClienteActionPerformed(evt);
+            }
+        });
+        mnuForncedor.add(mnuCliente);
+
+        jMenuItem2.setText("Fornecedores");
+        mnuForncedor.add(jMenuItem2);
+
+        mnuFuncionario.setText("Funcionarios");
+        mnuForncedor.add(mnuFuncionario);
+
+        mnuProduto.setText("Produtos");
+        mnuForncedor.add(mnuProduto);
+
+        jMenuItem3.setText("Serviços");
+        mnuForncedor.add(jMenuItem3);
+
+        jMenuBar1.add(mnuForncedor);
+
+        jMenu32.setText("Financeiro");
+        jMenuBar1.add(jMenu32);
+
+        jMenu25.setText("Relatorios");
+
+        jMenuItem4.setText("Receitas e Despesas");
+        jMenu25.add(jMenuItem4);
+
+        jMenuItem5.setText("Profissional que Mais Faturou");
+        jMenu25.add(jMenuItem5);
+
+        jMenuItem6.setText("Mês com Menor Faturamento");
+        jMenu25.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu25);
+
+        jMenu33.setText("Ferramentas");
+        jMenuBar1.add(jMenu33);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 691, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 423, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mnuSAIRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSAIRActionPerformed
+          System.exit(1);
+    }//GEN-LAST:event_mnuSAIRActionPerformed
+
+    private void mnuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +302,67 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButtonMenuItem SAIR;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
+    private javax.swing.JMenu jMenu15;
+    private javax.swing.JMenu jMenu16;
+    private javax.swing.JMenu jMenu17;
+    private javax.swing.JMenu jMenu18;
+    private javax.swing.JMenu jMenu19;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu20;
+    private javax.swing.JMenu jMenu21;
+    private javax.swing.JMenu jMenu22;
+    private javax.swing.JMenu jMenu23;
+    private javax.swing.JMenu jMenu24;
+    private javax.swing.JMenu jMenu25;
+    private javax.swing.JMenu jMenu26;
+    private javax.swing.JMenu jMenu27;
+    private javax.swing.JMenu jMenu28;
+    private javax.swing.JMenu jMenu29;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu30;
+    private javax.swing.JMenu jMenu31;
+    private javax.swing.JMenu jMenu32;
+    private javax.swing.JMenu jMenu33;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar10;
+    private javax.swing.JMenuBar jMenuBar11;
+    private javax.swing.JMenuBar jMenuBar12;
+    private javax.swing.JMenuBar jMenuBar13;
+    private javax.swing.JMenuBar jMenuBar14;
+    private javax.swing.JMenuBar jMenuBar15;
+    private javax.swing.JMenuBar jMenuBar16;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar4;
+    private javax.swing.JMenuBar jMenuBar5;
+    private javax.swing.JMenuBar jMenuBar6;
+    private javax.swing.JMenuBar jMenuBar7;
+    private javax.swing.JMenuBar jMenuBar8;
+    private javax.swing.JMenuBar jMenuBar9;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem mnuCliente;
+    private javax.swing.JMenu mnuForncedor;
+    private javax.swing.JMenuItem mnuFuncionario;
+    private javax.swing.JMenu mnuLogin;
+    private javax.swing.JMenuItem mnuProduto;
+    private javax.swing.JMenuItem mnuSAIR;
     // End of variables declaration//GEN-END:variables
 }

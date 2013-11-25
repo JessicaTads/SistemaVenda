@@ -18,16 +18,14 @@ public class Produto {
     private int codigo;
     private String nome;
     private float preco;
-    private String descricao;
     private Date datavencimento;
     private TipoProduto tipo;
     private int fornecedor;
 
-    public Produto(int codigo, String nome, float preco, String descricao, Date datavencimento, TipoProduto tipo, int fornecedor) {
+    public Produto(int codigo, String nome, float preco, Date datavencimento, TipoProduto tipo, int fornecedor) {
         this.codigo = codigo;
         this.nome = nome;
         this.preco = preco;
-        this.descricao = descricao;
         this.datavencimento = datavencimento;
         this.tipo = tipo;
         this.fornecedor = fornecedor;
@@ -37,7 +35,6 @@ public class Produto {
         this.codigo = 0;
         this.nome = "";
         this.preco = 0;
-        this.descricao = "";
         this.datavencimento = new Date();
         this.tipo = new TipoProduto();
         this.fornecedor = 0;
@@ -83,21 +80,6 @@ public class Produto {
         }
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) throws Exception {
-        Pattern Descricao = Pattern.compile("[\\w\\s]{3,}");
-        Matcher verifica = Descricao.matcher(descricao);
-
-        if (verifica.matches()) {
-            this.descricao = descricao;
-        } else {
-            throw new Exception("Campo 'Descrição' deve ter no mínimo 3 caracteres");
-        }
-    }
-
     public Date getDatavencimento() {
         return datavencimento;
     }
@@ -128,7 +110,6 @@ public class Produto {
         hash = 47 * hash + this.codigo;
         hash = 47 * hash + Objects.hashCode(this.nome);
         hash = 47 * hash + Float.floatToIntBits(this.preco);
-        hash = 47 * hash + Objects.hashCode(this.descricao);
         hash = 47 * hash + Objects.hashCode(this.datavencimento);
         hash = 47 * hash + Objects.hashCode(this.tipo);
         hash = 47 * hash + this.fornecedor;
@@ -153,9 +134,7 @@ public class Produto {
         if (Float.floatToIntBits(this.preco) != Float.floatToIntBits(other.preco)) {
             return false;
         }
-        if (!Objects.equals(this.descricao, other.descricao)) {
-            return false;
-        }
+        
         if (!Objects.equals(this.datavencimento, other.datavencimento)) {
             return false;
         }
@@ -170,6 +149,8 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", descricao=" + descricao + '}';
+        return "Produto{" + "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", datavencimento=" + datavencimento + ", tipo=" + tipo + ", fornecedor=" + fornecedor + '}';
     }
+
+    
 }

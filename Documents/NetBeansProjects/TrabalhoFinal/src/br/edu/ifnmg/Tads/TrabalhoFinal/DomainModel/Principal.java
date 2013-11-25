@@ -5,6 +5,7 @@
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.PessoaDAO;
+import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.UsuarioDAO;
 import java.util.Date;
 
 /**
@@ -19,6 +20,7 @@ public class Principal {
         Email email = new Email();
         Endereco endereco = new Endereco();
         Telefone telefone = new Telefone();
+        Usuario usuario = new Usuario();
 
 
         pessoa.setNome("Jefferson");
@@ -37,10 +39,18 @@ public class Principal {
         pessoa.addEmail(email);
         pessoa.addEndereco(endereco);
         pessoa.addTelefone(telefone);
+        
+        usuario.setLogin("Jessica");
+        usuario.setSenha("123");
+        //usuario.setFuncionario(1);
+        
 
         PessoaDAO dao = new PessoaDAO();
+        UsuarioDAO daoo = new UsuarioDAO();
 
-        dao.Salvar(pessoa);
+        //dao.Salvar(pessoa);
+        daoo.Usuario(usuario);
+        
 
 
 

@@ -14,20 +14,20 @@ import java.util.Objects;
 public class Usuario {
 
     private int codigo;
-    private String login;
+    private String usuario;
     private String senha;
     private Funcionario funcionario;
 
     public Usuario(int codigo, String login, String senha, Funcionario funcionario) {
         this.codigo = codigo;
-        this.login = login;
+        this.usuario = usuario;
         this.senha = senha;
         this.funcionario = funcionario;
     }
 
     public Usuario() {
         this.codigo = codigo;
-        this.login = login;
+        this.usuario = usuario;
         this.senha = senha;
 
         this.funcionario = funcionario;
@@ -45,12 +45,12 @@ public class Usuario {
         }
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsuario() {
+        return usuario;
     }
 
     public void setLogin(String login) {
-        this.login = login;
+        this.usuario = usuario;
     }
 
     public String getSenha() {
@@ -68,11 +68,12 @@ public class Usuario {
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
-
+    
+    
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.login);
+        hash = 29 * hash + Objects.hashCode(this.usuario);
         hash = 29 * hash + Objects.hashCode(this.senha);
         hash = 29 * hash + Objects.hashCode(this.funcionario);
         return hash;
@@ -87,7 +88,7 @@ public class Usuario {
             return false;
         }
         final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.login, other.login)) {
+        if (!Objects.equals(this.usuario, other.usuario)) {
             return false;
         }
         if (!Objects.equals(this.senha, other.senha)) {

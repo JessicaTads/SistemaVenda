@@ -11,6 +11,8 @@ import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Telefone;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -159,6 +161,76 @@ public class PessoaDAO extends DAO {
             } catch (Exception ex) {
                 System.err.println(ex.getMessage());
             }
+        }
+    }
+
+    public boolean Remover(Pessoa obj) {
+        if (obj.getCodigo() >= 0) {
+            try {
+                PreparedStatement sql = getConexao().prepareStatement("delete from pessoa where codPessoa=?");
+                sql.setInt(1, obj.getCodigo());
+                sql.setDate(2, new java.sql.Date(obj.getDataNascimento().getTime()));
+                sql.setString(3, obj.getCPF());
+                sql.setString(4, obj.getRG());
+                sql.executeUpdate();
+                return true;
+
+            } catch (Exception ex) {
+                System.err.println(ex.getMessage());
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Pessoa Abrir(int id) {
+        try {
+            PreparedStatement sql = getConexao().prepareStatement("select * from Pessoa where codPessoa=?");
+            sql.setInt(1, id);
+
+            ResultSet resultado = sql.executeQuery();
+
+            if (resultado.next()) {
+                Pessoa obj = new Pessoa();
+
+                obj.setCodigo(resultado.getInt("codPessoa"));
+                obj.setNome(resultado.getString("Nome"));
+                obj.setDataNascimento(resultado.getDate("DataNascimento"));
+                obj.setCPF(resultado.getString("CPF"));
+                obj.setRG(resultado.getString("RG"));
+                return obj;
+            } else {
+                return null;
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    public List<Pessoa> ListarTodos() {
+        try {
+            PreparedStatement sql = getConexao().prepareStatement("select * from Pessoa");
+
+            ResultSet resultado = sql.executeQuery();
+
+            List<Pessoa> lista = new ArrayList<Pessoa>();
+
+            while (resultado.next()) {
+                Pessoa obj = new Pessoa();
+
+                obj.setCodigo(resultado.getInt("codPessoa"));
+                obj.setNome(resultado.getString("Nome"));
+                obj.setDataNascimento(resultado.getDate("DataNascimento"));
+                obj.setCPF(resultado.getString("CPF"));
+                obj.setRG(resultado.getString("RG"));
+                lista.add(obj);
+            }
+
+            return lista;
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
         }
     }
 }
