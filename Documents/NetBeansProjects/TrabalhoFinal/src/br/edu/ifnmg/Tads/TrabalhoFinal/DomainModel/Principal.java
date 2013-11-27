@@ -4,6 +4,8 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
+import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.ClienteDAO;
+import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FuncionarioDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.PessoaDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.UsuarioDAO;
 import java.util.Date;
@@ -21,6 +23,8 @@ public class Principal {
         Endereco endereco = new Endereco();
         Telefone telefone = new Telefone();
         Usuario usuario = new Usuario();
+        Cliente cliente = new Cliente();
+        Funcionario funcionario = new Funcionario();
 
 
         pessoa.setNome("Jefferson");
@@ -44,12 +48,20 @@ public class Principal {
         usuario.setSenha("123");
         //usuario.setFuncionario(1);
         
+        cliente.setAtivo(1);
+        funcionario.setEspecialidade("manicure");
+        
 
         PessoaDAO dao = new PessoaDAO();
         UsuarioDAO daoo = new UsuarioDAO();
+        ClienteDAO daooo = new ClienteDAO();
+        FuncionarioDAO da = new FuncionarioDAO();
 
         //dao.Salvar(pessoa);
-        daoo.Usuario(usuario);
+       // daoo.Usuario(usuario);
+       // daooo.Salvar(cliente);
+        da.Salvar(funcionario);
+       
         
 
 

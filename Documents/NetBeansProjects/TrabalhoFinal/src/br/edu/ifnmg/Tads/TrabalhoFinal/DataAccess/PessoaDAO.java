@@ -11,6 +11,7 @@ import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Telefone;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -233,4 +234,15 @@ public class PessoaDAO extends DAO {
             return null;
         }
     }
+    
+    
+    protected void CarregaObjetoPessoa(Pessoa obj, ResultSet resultado) throws SQLException, Exception {
+        obj.setCodigo(resultado.getInt("IdPessoa"));
+        obj.setNome(resultado.getString("Nome"));
+        obj.setCPF(resultado.getString("CPF"));
+        obj.setRG(resultado.getString("RG"));
+        obj.setDataNascimento(resultado.getDate("DataNascimento"));
+    }
+    
+    
 }

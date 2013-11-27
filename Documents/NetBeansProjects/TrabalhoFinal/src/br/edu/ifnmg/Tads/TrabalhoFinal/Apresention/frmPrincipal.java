@@ -74,7 +74,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenu31 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuLogin = new javax.swing.JMenu();
-        SAIR = new javax.swing.JRadioButtonMenuItem();
+        Login = new javax.swing.JRadioButtonMenuItem();
         mnuSAIR = new javax.swing.JMenuItem();
         mnuForncedor = new javax.swing.JMenu();
         mnuCliente = new javax.swing.JMenuItem();
@@ -186,9 +186,14 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuLogin.setText("Sistema");
 
-        SAIR.setSelected(true);
-        SAIR.setText("Login");
-        mnuLogin.add(SAIR);
+        Login.setSelected(true);
+        Login.setText("Login");
+        Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginActionPerformed(evt);
+            }
+        });
+        mnuLogin.add(Login);
 
         mnuSAIR.setText("SAIR");
         mnuSAIR.addActionListener(new java.awt.event.ActionListener() {
@@ -267,6 +272,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuClienteActionPerformed
 
+    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
+        frmLogin janela = new frmLogin();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_LoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -302,7 +313,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButtonMenuItem SAIR;
+    private javax.swing.JRadioButtonMenuItem Login;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;

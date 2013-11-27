@@ -5,29 +5,42 @@
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author Jessica
  */
-public class Funcionario extends Pessoa{
-   
+public class Funcionario extends Pessoa {
+
     private int codigo;
     private String especialidade;
+    private int Ativo;
     private Pessoa pessoa;
 
-    public Funcionario(int codigo, String especialidade, Pessoa pessoa) {
+    public Funcionario(int codigo, String especialidade, Pessoa pessoa, int Ativo) {
         this.codigo = codigo;
         this.especialidade = especialidade;
         this.pessoa = pessoa;
-    }
-    
-    public Funcionario() {
-        this.codigo = 0;
-        this.especialidade = "";
-        this.pessoa = new Pessoa();
+        this.Ativo = Ativo;
     }
 
+    public Funcionario() {
+        this.Ativo = 1;
+        this.especialidade = "";
+    }
+
+    //************************************
+    public int getAtivo() {
+        return Ativo;
+    }
+
+    public void setAtivo(int Ativo) {
+        this.Ativo = Ativo;
+    }
+    
+    
     public int getCodigo() {
         return codigo;
     }
@@ -44,8 +57,16 @@ public class Funcionario extends Pessoa{
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    public void setEspecialidade(String especialidade) throws Exception {
+        Pattern Especialidade = Pattern.compile("[\\w\\s]{3,}");
+        Matcher verifica = Especialidade.matcher(especialidade);
+
+        if (verifica.matches()) {
+            this.especialidade = especialidade;
+        } else {
+            throw new Exception("Formato de nome Inválido!");
+
+        }
     }
 
     public Pessoa getPessoa() {
@@ -90,12 +111,4 @@ public class Funcionario extends Pessoa{
     public String toString() {
         return pessoa.toString();
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }

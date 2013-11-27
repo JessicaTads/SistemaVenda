@@ -4,26 +4,34 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
-import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Pessoa;
 import java.util.Objects;
 
 /**
  *
  * @author Jessica
  */
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa {
 
     private int codigo;
     private Pessoa pessoa;
+    private int ativo;
 
-    public Cliente(int codigo, Pessoa pessoa) {
+    public Cliente(int codigo, Pessoa pessoa, int ativo) {
         this.codigo = codigo;
         this.pessoa = pessoa;
+        this.ativo = ativo;
     }
 
     public Cliente() {
-        this.codigo = 0;
-        this.pessoa = new Pessoa();
+        this.ativo = 1;
+    }
+
+    public int getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(int ativo) {
+        this.ativo = ativo;
     }
 
     public int getCodigo() {

@@ -27,7 +27,7 @@ public class UsuarioDAO extends DAO{
         try {
             PreparedStatement comando;
             PreparedStatement sql = getConexao().prepareStatement("select * from usuarios where usuario like ? and senha like password(?) and status = 1");
-            sql.setString(1, usuario.getUsuario());
+            sql.setString(1, usuario.getLogin());
             sql.setString(2, usuario.getSenha());
             ResultSet resultado = sql.executeQuery();
             resultado.first();
