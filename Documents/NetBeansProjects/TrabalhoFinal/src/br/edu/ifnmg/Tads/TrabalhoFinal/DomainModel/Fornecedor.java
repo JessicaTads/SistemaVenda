@@ -15,20 +15,24 @@ import java.util.regex.Pattern;
 public class Fornecedor extends Pessoa {
 
     private String cnpj;
+    private int Ativo;
 
-    public Fornecedor(String cnpj) {
+    public Fornecedor(String cnpj, int Ativo) {
         this.cnpj = cnpj;
+        this.Ativo = Ativo;
     }
-
+    ///Construtor
     public Fornecedor() {
         this.cnpj = "";
+        this.Ativo = 1;
     }
 
+    //**************
     public String getCNPJ() {
         return cnpj;
     }
 
-    public void setCNPJ(String cnpj) throws Exception{
+    public void setCNPJ(String cnpj) throws Exception {
         Pattern CNPJ = Pattern.compile("[\\w\\s]{3,}");
         Matcher verifica = CNPJ.matcher(cnpj);
 
@@ -38,6 +42,16 @@ public class Fornecedor extends Pessoa {
             throw new Exception("Campo 'CNPJ' deve é invalido");
         }
     }
+
+    public int getAtivo() {
+        return Ativo;
+    }
+
+    public void setAtivo(int Ativo) {
+        this.Ativo = Ativo;
+    }
+    
+    
 
     @Override
     public int hashCode() {
@@ -65,12 +79,4 @@ public class Fornecedor extends Pessoa {
     public String toString() {
         return "Fornecedor{" + "cnpj=" + cnpj + '}';
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }

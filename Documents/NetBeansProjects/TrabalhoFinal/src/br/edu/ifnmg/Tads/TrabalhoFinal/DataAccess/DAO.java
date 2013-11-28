@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess;
 
+import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Fornecedor;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -29,6 +30,10 @@ public class DAO {
         return conexao;
 
 
+    }
+
+    void Salvar(Fornecedor obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

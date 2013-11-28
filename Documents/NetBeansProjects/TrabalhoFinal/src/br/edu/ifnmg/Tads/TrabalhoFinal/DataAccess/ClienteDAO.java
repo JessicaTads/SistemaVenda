@@ -28,7 +28,7 @@ public class ClienteDAO extends PessoaDAO {
         super();
         bd = new DAO();
     }
-    //Salvar
+   
 
     public boolean Salvar(Cliente obj) {
         if (obj.getCodigo() == 0) {
