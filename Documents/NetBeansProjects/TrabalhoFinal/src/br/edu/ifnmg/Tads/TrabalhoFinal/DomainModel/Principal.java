@@ -5,6 +5,7 @@
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.ClienteDAO;
+import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FornecedorDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FuncionarioDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.PessoaDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.UsuarioDAO;
@@ -25,6 +26,7 @@ public class Principal {
         Usuario usuario = new Usuario();
         Cliente cliente = new Cliente();
         Funcionario funcionario = new Funcionario();
+        Fornecedor fornecedor = new Fornecedor();
 
 
         pessoa.setNome("Jefferson");
@@ -46,21 +48,24 @@ public class Principal {
         
         usuario.setLogin("Jessica");
         usuario.setSenha("123");
-        //usuario.setFuncionario(1);
+        usuario.setFuncionario(funcionario);
         
         cliente.setAtivo(1);
-        funcionario.setEspecialidade("manicure");
+        funcionario.setEspecialidade("Cabelereiro");
+        fornecedor.setCNPJ("a123b");
         
 
         PessoaDAO dao = new PessoaDAO();
         UsuarioDAO daoo = new UsuarioDAO();
         ClienteDAO daooo = new ClienteDAO();
         FuncionarioDAO da = new FuncionarioDAO();
+        FornecedorDAO daoooo = new FornecedorDAO();
 
-        //dao.Salvar(pessoa);
-       // daoo.Usuario(usuario);
-       // daooo.Salvar(cliente);
-        da.Salvar(funcionario);
+      // dao.Salvar(pessoa);
+      //  daoo.Salvar(usuario);
+      //  daooo.Salvar(cliente);
+      //  da.Salvar(funcionario);
+        daoooo.Salvar(fornecedor);
        
         
 

@@ -4,35 +4,43 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess;
 
-import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Cliente;
+
 import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Fornecedor;
+import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Pessoa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Jessica
  */
-public class FornecedorDAO extends DAO {
+public class FornecedorDAO extends PessoaDAO {
 
     private DAO bd;
 
     public FornecedorDAO() {
-
         super();
-
+        bd = new DAO();
     }
+   
 
-    public boolean Salvar(Fornecedor obj) {
+    public boolean Salvar(Fornecedor obj){
         if (obj.getCodigo() == 0) {
             super.Salvar(obj);
 
             try {
-                PreparedStatement sql = getConexao().prepareStatement("insert into Forncedores(ativo,codpessoa,CNPJ) values(?,?,?)");
-                sql.setInt(1, obj.getCodigo());
-                sql.setString(2, obj.getCNPJ());
-                sql.setInt(3, obj.getAtivo());
-
+                PreparedStatement sql = getConexao().prepareStatement("insert into fornecedores(CNPJ,Ativo,Codpessoa) values(?,?,?)");
+                sql.setString(1, obj.getCNPJ());
+                sql.setInt(2, obj.getAtivo());
+                sql.setInt(3, obj.getCodigo());
 
                 sql.executeUpdate();
 
@@ -45,9 +53,11 @@ public class FornecedorDAO extends DAO {
             try {
                 super.Salvar(obj);
                 Connection con = getConexao();
-                PreparedStatement sql = con.prepareStatement("update Clientes set  Ativo=? where CodPessoa=?");
-                sql.setInt(1, obj.getAtivo());
-                sql.setInt(2, obj.getCodigo());
+                PreparedStatement sql = con.prepareStatement("update Fornecedores set CNPJ=?, ATIVO=? where CodPessoa=?");
+
+                sql.setString(1, obj.getCNPJ());
+                sql.setInt(2, obj.getAtivo());
+                sql.setInt(3, obj.getCodigo());
 
                 sql.executeUpdate();
 
@@ -59,4 +69,134 @@ public class FornecedorDAO extends DAO {
             }
         }
     }
+
+   /* public Fornecedor AbrirFornecedor(int id) {
+        try {
+            Fornecedor fornecedor = new Fornecedor();
+
+            super.Pessoa Abrir(fornecedor, id);
+
+            //Seleciona o funcionario e armazena em 'resultado'
+            PreparedStatement sql = getConexao().prepareStatement("select * from Fornecedor where IdPessoa=?");
+            sql.setInt(1, id);
+            ResultSet resultado = sql.executeQuery();
+
+
+
+            if (resultado.next()) {
+
+                fornecedor.setCNPJ(resultado.getString("CNPJ"));
+
+                return fornecedor;
+            } else {
+                return null;
+            }
+
+
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
+    }
+*/
+    public boolean Apagar(int cod) {
+        try {
+            PreparedStatement comando = bd.getConexao().
+                    prepareStatement("update fornecedores set ativo = 0 where CodPessoa = ?");
+            comando.setInt(1, cod);
+            comando.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public List<Fornecedor> buscar(Fornecedor filtro) {
+        try {
+
+            String sql = "select * from pessoa p join Fornecedores f on p.CodPessoa = f.CodPessoa where ativo = 1 ";
+            String where = "";
+
+            if (filtro.getNome().length() > 0) {
+                if (where.length() > 0) {
+                    where = where + " and ";
+                }
+                where = " and nome like '%" + filtro.getNome() + "%'";
+            }
+
+            if (filtro.getCodigo() > 0) {
+                if (where.length() > 0) {
+                    where = where + " and ";
+                }
+                where = where + " Idpessoa = " + filtro.getCodigo();
+            }
+
+            if (where.length() > 0) {
+                sql = sql + where;
+            }
+
+            Statement comando = bd.getConexao().createStatement();
+
+            ResultSet resultado = comando.executeQuery(sql);
+
+            // Cria uma lista de produtos vazia
+            List<Fornecedor> fornecedores = new LinkedList<>();
+            while (resultado.next()) {
+                // Inicializa um objeto de produto vazio
+                Fornecedor tmp = new Fornecedor();
+                // Pega os valores do retorno da consulta e coloca no objeto
+
+                try {
+
+                    tmp.setCodigo(resultado.getInt("CodPessoa"));
+                    tmp.setNome(resultado.getString("Nome"));
+                    tmp.setCPF(resultado.getString("CPF"));
+                    tmp.setRG(resultado.getString("RG"));
+                    tmp.setDataNascimento(resultado.getDate("DataNascimento"));
+                    tmp.setCNPJ(resultado.getString("CNPJ"));
+                    
+
+                } catch (Exception ex) {
+                    Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                // Pega o objeto e coloca na lista
+                fornecedores.add(tmp);
+            }
+            return fornecedores;
+        } catch (SQLException ex) {
+            Logger.getLogger(FornecedorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
+    public List<Fornecedor> ListarTodosFornec() {
+        try {
+            PreparedStatement sql = getConexao().prepareStatement("select * from Pessoa P join Fornecedores F on P.CodPessoa = F.CodPessoa where F.ativo = 1");
+
+            ResultSet resultado = sql.executeQuery();
+
+            List<Fornecedor> lista = new ArrayList<Fornecedor>();
+
+            while (resultado.next()) {
+                Fornecedor obj = new Fornecedor();
+
+                super.CarregaObjetoPessoa(obj, resultado);
+
+                obj.setCodigo(resultado.getInt("CodPessoa"));
+                obj.setCNPJ(resultado.getString("CNPJ"));
+
+                lista.add(obj);
+            }
+
+            return lista;
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    
+ 
 }

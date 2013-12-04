@@ -83,6 +83,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuProduto = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu32 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu25 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -230,6 +232,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(mnuForncedor);
 
         jMenu32.setText("Financeiro");
+
+        jMenuItem7.setText("Caixa");
+        jMenu32.add(jMenuItem7);
+
+        jMenuItem8.setText("Contas");
+        jMenu32.add(jMenuItem8);
+
         jMenuBar1.add(jMenu32);
 
         jMenu25.setText("Relatorios");
@@ -369,6 +378,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem mnuCliente;
     private javax.swing.JMenu mnuForncedor;
     private javax.swing.JMenuItem mnuFuncionario;

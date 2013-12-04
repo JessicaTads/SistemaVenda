@@ -18,24 +18,35 @@ public class Usuario {
     private int codigo;
     private String login;
     private String senha;
+    private int Ativo;
     private Funcionario funcionario;
 
     /*----------- Construtor ----------*/
-    public Usuario(int codigo, String login, String senha, Funcionario funcionario) {
+    public Usuario(int codigo, String login, String senha, Funcionario funcionario,int Ativo) {
         this.codigo = codigo;
         this.login = login;
         this.senha = senha;
+        this.Ativo = Ativo;
         this.funcionario = funcionario;
     }
 
     public Usuario() {
-       
+       this.Ativo = 1;
     }
 
     /*----------- Getters -------------*/
     public int getCodigo() {
         return codigo;
     }
+
+    public int getAtivo() {
+        return Ativo;
+    }
+
+    public void setAtivo(int Ativo) {
+        this.Ativo = Ativo;
+    }
+    
 
     public String getLogin() {
         return login;
