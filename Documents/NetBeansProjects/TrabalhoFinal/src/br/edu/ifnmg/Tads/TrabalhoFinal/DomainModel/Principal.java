@@ -4,10 +4,13 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
+
+import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.CaixaDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.ClienteDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FornecedorDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FuncionarioDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.PessoaDAO;
+import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.SecaoDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.UsuarioDAO;
 import java.util.Date;
 
@@ -27,6 +30,8 @@ public class Principal {
         Cliente cliente = new Cliente();
         Funcionario funcionario = new Funcionario();
         Fornecedor fornecedor = new Fornecedor();
+        Caixa caixa = new Caixa();
+        Secao secao = new Secao();
 
 
         pessoa.setNome("Jefferson");
@@ -51,8 +56,15 @@ public class Principal {
         usuario.setFuncionario(funcionario);
         
         cliente.setAtivo(1);
-        funcionario.setEspecialidade("Cabelereiro");
+        funcionario.setEspecialidade("Esteticista");
         fornecedor.setCNPJ("a123b");
+        caixa.setSaldo(20);
+        secao.setFinalsecao(null);
+        secao.setIniciosecao(null);
+        secao.setSaldoinicial(20);
+        secao.setSaldofinal(80);
+       
+       
         
 
         PessoaDAO dao = new PessoaDAO();
@@ -60,12 +72,17 @@ public class Principal {
         ClienteDAO daooo = new ClienteDAO();
         FuncionarioDAO da = new FuncionarioDAO();
         FornecedorDAO daoooo = new FornecedorDAO();
+        CaixaDAO daooooo = new CaixaDAO();
+        SecaoDAO daao = new SecaoDAO();
 
       // dao.Salvar(pessoa);
       //  daoo.Salvar(usuario);
       //  daooo.Salvar(cliente);
       //  da.Salvar(funcionario);
-        daoooo.Salvar(fornecedor);
+        //daoooo.Salvar(fornecedor);
+       // daooooo.AbrirCaixa(1);
+       daao.Salvar(secao);
+       
        
         
 

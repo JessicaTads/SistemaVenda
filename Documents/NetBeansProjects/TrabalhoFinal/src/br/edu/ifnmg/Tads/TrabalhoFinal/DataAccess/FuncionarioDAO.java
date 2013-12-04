@@ -7,17 +7,25 @@ package br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Jessica
  */
 public class FuncionarioDAO extends PessoaDAO{
-    
-   
-    
-     public FuncionarioDAO() {
+
+    private DAO bd;
+
+    public FuncionarioDAO() {
         super();
+        bd = new DAO();
     }
      
      public boolean Salvar(Funcionario obj) {
@@ -86,6 +94,61 @@ public class FuncionarioDAO extends PessoaDAO{
             return null;
         }
     }*/
+      
+
+    public List<Funcionario> buscar(Funcionario filtro) {
+        try {
+
+            String sql = "select * from pessoa p join funcionarios f on p.CodPessoa = f.CodPessoa where ativo = 1 ";
+            String where = "";
+
+            if (filtro.getNome().length() > 0) {
+                if (where.length() > 0) {
+                    where = where + " and ";
+                }
+                where = "and nome like '%" + filtro.getNome() + "%'";
+            }
+
+            if (filtro.getCodigo() > 0) {
+                if (where.length() > 0) {
+                    where = where + " and ";
+                }
+                where = where + " Codpessoa = " + filtro.getCodigo();
+            }
+
+            if (where.length() > 0) {
+                sql = sql + where;
+            }
+
+            Statement comando = bd.getConexao().createStatement();
+
+            ResultSet resultado = comando.executeQuery(sql);
+
+            // Cria uma lista de produtos vazia
+            List<Funcionario> funcionarios = new LinkedList<>();
+            while (resultado.next()) {
+                // Inicializa um objeto de produto vazio
+                Funcionario tmp = new Funcionario();
+                // Pega os valores do retorno da consulta e coloca no objeto
+
+                try {
+
+                    tmp.setCodigo(resultado.getInt("CodPessoa"));
+                    
+
+                } catch (Exception ex) {
+                    Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                // Pega o objeto e coloca na lista
+                funcionarios.add(tmp);
+            }
+            return funcionarios;
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
      
     
     
