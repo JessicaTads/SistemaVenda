@@ -4,17 +4,29 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.Apresention;
 
+import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FuncionarioDAO;
+import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Funcionario;
+
 /**
  *
  * @author Jessica
  */
 public class frmLogin extends javax.swing.JFrame {
 
+    
+    FuncionarioDAO funcionarioDao;
+    Funcionario funcionario;
+    
     /**
      * Creates new form frmLogin
      */
     public frmLogin() {
         initComponents();
+        funcionario = new Funcionario();
+        funcionarioDao = new FuncionarioDAO();
+        
+        
+        
     }
 
     /**

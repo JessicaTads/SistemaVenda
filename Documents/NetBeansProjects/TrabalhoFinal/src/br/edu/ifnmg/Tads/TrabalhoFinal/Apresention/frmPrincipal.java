@@ -82,6 +82,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuFuncionario = new javax.swing.JMenuItem();
         mnuProduto = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        mnuCadastrarUsuarios = new javax.swing.JMenuItem();
         jMenu32 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -224,10 +225,23 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuForncedor.add(mnuFuncionario);
 
         mnuProduto.setText("Produtos");
+        mnuProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuProdutoActionPerformed(evt);
+            }
+        });
         mnuForncedor.add(mnuProduto);
 
         jMenuItem3.setText("Serviços");
         mnuForncedor.add(jMenuItem3);
+
+        mnuCadastrarUsuarios.setText("Usuarios");
+        mnuCadastrarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCadastrarUsuariosActionPerformed(evt);
+            }
+        });
+        mnuForncedor.add(mnuCadastrarUsuarios);
 
         jMenuBar1.add(mnuForncedor);
 
@@ -278,7 +292,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuSAIRActionPerformed
 
     private void mnuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuClienteActionPerformed
-        // TODO add your handling code here:
+        frmClienteListagem janela = new frmClienteListagem();
+        add(janela);
+        janela.setVisible(true);
     }//GEN-LAST:event_mnuClienteActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
@@ -286,6 +302,16 @@ public class frmPrincipal extends javax.swing.JFrame {
         add(janela);
         janela.setVisible(true);
     }//GEN-LAST:event_LoginActionPerformed
+
+    private void mnuProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProdutoActionPerformed
+        
+    }//GEN-LAST:event_mnuProdutoActionPerformed
+
+    private void mnuCadastrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCadastrarUsuariosActionPerformed
+        frmUsuarioListagem janela = new frmUsuarioListagem();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_mnuCadastrarUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,6 +406,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem mnuCadastrarUsuarios;
     private javax.swing.JMenuItem mnuCliente;
     private javax.swing.JMenu mnuForncedor;
     private javax.swing.JMenuItem mnuFuncionario;

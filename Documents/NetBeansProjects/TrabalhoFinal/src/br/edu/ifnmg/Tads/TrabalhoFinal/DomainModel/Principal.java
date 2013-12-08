@@ -54,6 +54,7 @@ public class Principal {
         usuario.setLogin("Jessica");
         usuario.setSenha("123");
         usuario.setFuncionario(funcionario);
+      
         
         cliente.setAtivo(1);
         funcionario.setEspecialidade("Esteticista");
@@ -76,12 +77,12 @@ public class Principal {
         SecaoDAO daao = new SecaoDAO();
 
       // dao.Salvar(pessoa);
-      //  daoo.Salvar(usuario);
+       daoo.Salvar(usuario);
       //  daooo.Salvar(cliente);
       //  da.Salvar(funcionario);
         //daoooo.Salvar(fornecedor);
        // daooooo.AbrirCaixa(1);
-       daao.Salvar(secao);
+      // daao.Salvar(secao);
        
        
         
