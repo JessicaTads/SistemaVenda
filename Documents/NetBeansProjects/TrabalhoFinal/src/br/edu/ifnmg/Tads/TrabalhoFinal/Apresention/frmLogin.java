@@ -6,6 +6,7 @@ package br.edu.ifnmg.Tads.TrabalhoFinal.Apresention;
 
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FuncionarioDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Funcionario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,9 +57,19 @@ public class frmLogin extends javax.swing.JFrame {
 
         btnEntrarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon_confirm.fw.png"))); // NOI18N
         btnEntrarLogin.setText("Entrar");
+        btnEntrarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarLoginActionPerformed(evt);
+            }
+        });
 
         btnCancelarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon_cancel.fw.png"))); // NOI18N
         btnCancelarLogin.setText("Cancelar");
+        btnCancelarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarLoginActionPerformed(evt);
+            }
+        });
 
         lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.jpg"))); // NOI18N
 
@@ -109,6 +120,22 @@ public class frmLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
+        if (("Jessica".equals(txtUsuario.getText())) && ("123".equals(txtSenha.getText()))) {
+            frmPrincipal janela = new frmPrincipal() {
+            };
+            janela.setVisible(true);
+            this.setVisible(false);
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Login ou senha incorreto!");
+        }
+    }//GEN-LAST:event_btnEntrarLoginActionPerformed
+
+    private void btnCancelarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarLoginActionPerformed
 
     /**
      * @param args the command line arguments
