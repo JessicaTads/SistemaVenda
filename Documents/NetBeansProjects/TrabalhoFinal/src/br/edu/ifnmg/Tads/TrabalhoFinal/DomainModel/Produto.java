@@ -4,7 +4,7 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
-import java.util.Date;
+
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,15 +18,15 @@ public class Produto {
     private int codigo;
     private String nome;
     private float preco;
-    private Date datavencimento;
+    private String descricao;
     private TipoProduto tipo;
     private int fornecedor;
 
-    public Produto(int codigo, String nome, float preco, Date datavencimento, TipoProduto tipo, int fornecedor) {
+    public Produto(int codigo, String nome, float preco, String descricao, TipoProduto tipo, int fornecedor) {
         this.codigo = codigo;
         this.nome = nome;
         this.preco = preco;
-        this.datavencimento = datavencimento;
+        this.descricao = descricao;
         this.tipo = tipo;
         this.fornecedor = fornecedor;
     }
@@ -35,7 +35,7 @@ public class Produto {
         this.codigo = 0;
         this.nome = "";
         this.preco = 0;
-        this.datavencimento = new Date();
+        this.descricao = "";
         this.tipo = new TipoProduto();
         this.fornecedor = 0;
     }
@@ -80,12 +80,12 @@ public class Produto {
         }
     }
 
-    public Date getDatavencimento() {
-        return datavencimento;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDatavencimento(Date datavencimento) {
-        this.datavencimento = datavencimento;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public TipoProduto getTipo() {
@@ -110,7 +110,6 @@ public class Produto {
         hash = 47 * hash + this.codigo;
         hash = 47 * hash + Objects.hashCode(this.nome);
         hash = 47 * hash + Float.floatToIntBits(this.preco);
-        hash = 47 * hash + Objects.hashCode(this.datavencimento);
         hash = 47 * hash + Objects.hashCode(this.tipo);
         hash = 47 * hash + this.fornecedor;
         return hash;
@@ -135,9 +134,7 @@ public class Produto {
             return false;
         }
         
-        if (!Objects.equals(this.datavencimento, other.datavencimento)) {
-            return false;
-        }
+      
         if (!Objects.equals(this.tipo, other.tipo)) {
             return false;
         }
@@ -149,8 +146,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", datavencimento=" + datavencimento + ", tipo=" + tipo + ", fornecedor=" + fornecedor + '}';
+        return "Produto{" + "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + " tipo=" + tipo + ", fornecedor=" + fornecedor + '}';
     }
-
-    
 }

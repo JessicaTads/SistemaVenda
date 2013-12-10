@@ -78,11 +78,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuSAIR = new javax.swing.JMenuItem();
         mnuForncedor = new javax.swing.JMenu();
         mnuCliente = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuFornecedor = new javax.swing.JMenuItem();
         mnuFuncionario = new javax.swing.JMenuItem();
         mnuProduto = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        mnuCadastrarUsuarios = new javax.swing.JMenuItem();
+        mnuServicos = new javax.swing.JMenuItem();
+        mnuUsuarios = new javax.swing.JMenuItem();
         jMenu25 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -215,8 +215,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         mnuForncedor.add(mnuCliente);
 
-        jMenuItem2.setText("Fornecedores");
-        mnuForncedor.add(jMenuItem2);
+        mnuFornecedor.setText("Fornecedores");
+        mnuFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuFornecedorActionPerformed(evt);
+            }
+        });
+        mnuForncedor.add(mnuFornecedor);
 
         mnuFuncionario.setText("Funcionarios");
         mnuForncedor.add(mnuFuncionario);
@@ -229,16 +234,16 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         mnuForncedor.add(mnuProduto);
 
-        jMenuItem3.setText("Serviços");
-        mnuForncedor.add(jMenuItem3);
+        mnuServicos.setText("Serviços");
+        mnuForncedor.add(mnuServicos);
 
-        mnuCadastrarUsuarios.setText("Usuarios");
-        mnuCadastrarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        mnuUsuarios.setText("Usuarios");
+        mnuUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuCadastrarUsuariosActionPerformed(evt);
+                mnuUsuariosActionPerformed(evt);
             }
         });
-        mnuForncedor.add(mnuCadastrarUsuarios);
+        mnuForncedor.add(mnuUsuarios);
 
         jMenuBar1.add(mnuForncedor);
 
@@ -294,11 +299,17 @@ public class frmPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mnuProdutoActionPerformed
 
-    private void mnuCadastrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCadastrarUsuariosActionPerformed
+    private void mnuUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuariosActionPerformed
         frmUsuarioListagem janela = new frmUsuarioListagem();
         add(janela);
         janela.setVisible(true);
-    }//GEN-LAST:event_mnuCadastrarUsuariosActionPerformed
+    }//GEN-LAST:event_mnuUsuariosActionPerformed
+
+    private void mnuFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFornecedorActionPerformed
+       frmFornecedorListagem janela = new frmFornecedorListagem();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_mnuFornecedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,17 +396,17 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar8;
     private javax.swing.JMenuBar jMenuBar9;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem mnuCadastrarUsuarios;
     private javax.swing.JMenuItem mnuCliente;
     private javax.swing.JMenu mnuForncedor;
+    private javax.swing.JMenuItem mnuFornecedor;
     private javax.swing.JMenuItem mnuFuncionario;
     private javax.swing.JMenu mnuLogin;
     private javax.swing.JMenuItem mnuProduto;
     private javax.swing.JMenuItem mnuSAIR;
+    private javax.swing.JMenuItem mnuServicos;
+    private javax.swing.JMenuItem mnuUsuarios;
     // End of variables declaration//GEN-END:variables
 }

@@ -93,8 +93,8 @@ public class FuncionarioDAO extends PessoaDAO{
             System.err.println(ex.getMessage());
             return null;
         }
-    }*/
-      
+    }
+      */
 
     public List<Funcionario> buscar(Funcionario filtro) {
         try {

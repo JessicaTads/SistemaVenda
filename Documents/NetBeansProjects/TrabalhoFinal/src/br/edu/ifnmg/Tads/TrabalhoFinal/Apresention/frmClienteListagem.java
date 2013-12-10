@@ -4,11 +4,16 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.Apresention;
 
+
+import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Cliente;
+
 /**
  *
  * @author Jessica
  */
 public class frmClienteListagem extends javax.swing.JInternalFrame {
+
+    Cliente DAO;
 
     /**
      * Creates new form frmClienteListagem
