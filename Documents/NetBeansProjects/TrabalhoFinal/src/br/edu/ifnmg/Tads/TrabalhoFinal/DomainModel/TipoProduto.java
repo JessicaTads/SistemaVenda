@@ -4,6 +4,7 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,6 +54,36 @@ public class TipoProduto {
         }
 
 
+    }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + this.codigo;
+        hash = 43 * hash + Objects.hashCode(this.tipo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TipoProduto other = (TipoProduto) obj;
+        if (this.codigo != other.codigo) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo, other.tipo)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "TipoProduto{" + "codigo=" + codigo + ", tipo=" + tipo + '}';
     }
 }

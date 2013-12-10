@@ -4,7 +4,6 @@
  */
 package br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel;
 
-
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,15 +18,13 @@ public class Produto {
     private String nome;
     private float preco;
     private String descricao;
-    private TipoProduto tipo;
     private int fornecedor;
 
-    public Produto(int codigo, String nome, float preco, String descricao, TipoProduto tipo, int fornecedor) {
+    public Produto(int codigo, String nome, float preco, String descricao, int fornecedor) {
         this.codigo = codigo;
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
-        this.tipo = tipo;
         this.fornecedor = fornecedor;
     }
 
@@ -36,7 +33,6 @@ public class Produto {
         this.nome = "";
         this.preco = 0;
         this.descricao = "";
-        this.tipo = new TipoProduto();
         this.fornecedor = 0;
     }
 
@@ -88,14 +84,6 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public TipoProduto getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TipoProduto tipo) {
-        this.tipo = tipo;
-    }
-
     public int getFornecedor() {
         return fornecedor;
     }
@@ -110,7 +98,7 @@ public class Produto {
         hash = 47 * hash + this.codigo;
         hash = 47 * hash + Objects.hashCode(this.nome);
         hash = 47 * hash + Float.floatToIntBits(this.preco);
-        hash = 47 * hash + Objects.hashCode(this.tipo);
+
         hash = 47 * hash + this.fornecedor;
         return hash;
     }
@@ -133,11 +121,9 @@ public class Produto {
         if (Float.floatToIntBits(this.preco) != Float.floatToIntBits(other.preco)) {
             return false;
         }
-        
-      
-        if (!Objects.equals(this.tipo, other.tipo)) {
-            return false;
-        }
+
+
+
         if (this.fornecedor != other.fornecedor) {
             return false;
         }
@@ -146,6 +132,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + " tipo=" + tipo + ", fornecedor=" + fornecedor + '}';
+        return "Produto{" + "codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", fornecedor=" + fornecedor + '}';
     }
 }

@@ -296,7 +296,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginActionPerformed
 
     private void mnuProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuProdutoActionPerformed
-        
+        frmProdutoListagem janela = new frmProdutoListagem() ;
+        add(janela);
+        janela.setVisible(true); 
     }//GEN-LAST:event_mnuProdutoActionPerformed
 
     private void mnuUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuUsuariosActionPerformed

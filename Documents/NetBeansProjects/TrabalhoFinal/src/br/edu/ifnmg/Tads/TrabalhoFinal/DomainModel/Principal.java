@@ -10,6 +10,7 @@ import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.ClienteDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FornecedorDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FuncionarioDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.PessoaDAO;
+import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.ProdutoDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.SecaoDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.UsuarioDAO;
 import java.util.Date;
@@ -32,6 +33,7 @@ public class Principal {
         Fornecedor fornecedor = new Fornecedor();
         Caixa caixa = new Caixa();
         Secao secao = new Secao();
+        Produto produto =new Produto();
 
 
         pessoa.setNome("Jefferson");
@@ -64,6 +66,12 @@ public class Principal {
         secao.setIniciosecao(null);
         secao.setSaldoinicial(20);
         secao.setSaldofinal(80);
+        produto.setDescricao("20 kg");
+        produto.setFornecedor(1);
+        produto.setNome("Arroz");
+        produto.setPreco(5);
+        
+        
        
        
         
@@ -75,15 +83,16 @@ public class Principal {
         FornecedorDAO daoooo = new FornecedorDAO();
         CaixaDAO daooooo = new CaixaDAO();
         SecaoDAO daao = new SecaoDAO();
+        ProdutoDAO daaao = new ProdutoDAO();
 
       // dao.Salvar(pessoa);
-       daoo.Salvar(usuario);
+      // daoo.Salvar(usuario);
       //  daooo.Salvar(cliente);
       //  da.Salvar(funcionario);
         //daoooo.Salvar(fornecedor);
        // daooooo.AbrirCaixa(1);
       // daao.Salvar(secao);
-       
+       daaao.SalvarProduto(produto);
        
         
 

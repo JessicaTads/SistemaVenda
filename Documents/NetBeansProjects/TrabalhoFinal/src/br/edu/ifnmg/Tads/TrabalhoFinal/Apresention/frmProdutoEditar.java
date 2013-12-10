@@ -9,7 +9,7 @@ import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.FornecedorDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DataAccess.ProdutoDAO;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Fornecedor;
 import br.edu.ifnmg.Tads.TrabalhoFinal.DomainModel.Produto;
-import java.util.Date;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,6 +66,9 @@ public class frmProdutoEditar extends javax.swing.JInternalFrame {
         lblId.setText(Integer.toString(produto.getCodigo()));
         txtNome.setText(produto.getNome());
         txtPreco.setText(Float.toString(produto.getPreco()));
+        txtDescricao.setText(produto.getDescricao());
+        cbxFornecedor.setToolTipText(Integer.toString(fornecedor.getCodigo()));
+        
      
         
 

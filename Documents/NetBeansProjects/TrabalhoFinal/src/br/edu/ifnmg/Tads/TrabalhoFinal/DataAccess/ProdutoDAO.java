@@ -31,7 +31,7 @@ public class ProdutoDAO extends DAO {
     public boolean SalvarProduto(Produto obj) {
         if (obj.getCodigo() == 0) {
             try {
-                PreparedStatement sql = getConexao().prepareStatement("insert into produto(nome,preco,descricao,fornecedor) values(?,?,?,?,?)");
+                PreparedStatement sql = getConexao().prepareStatement("insert into produtos(nome,preco,descricao,CodFornecedor) values(?,?,?,?)");
                 sql.setString(1, obj.getNome());
                 sql.setDouble(2, obj.getPreco());
                 sql.setString(3, obj.getDescricao());
@@ -40,7 +40,7 @@ public class ProdutoDAO extends DAO {
                 sql.executeUpdate();
 
 
-                PreparedStatement sql2 = getConexao().prepareStatement("select codProduto from Produto where nome= ? and preco=? and tipo=?");
+                PreparedStatement sql2 = getConexao().prepareStatement("select codProduto from Produtos where nome= ? and preco=? and descricao=? and CodFornecedor=?");
                 sql2.setString(1, obj.getNome());
                 sql2.setDouble(2, obj.getPreco());
                 sql2.setString(3, obj.getDescricao());
@@ -83,7 +83,7 @@ public class ProdutoDAO extends DAO {
 
     public Produto Abrir(int id) {
         try {
-            PreparedStatement sql = getConexao().prepareStatement("select * from produto where codProduto=?");
+            PreparedStatement sql = getConexao().prepareStatement("select * from produtos where codProduto=?");
             sql.setInt(1, id);
 
             ResultSet resultado = sql.executeQuery();
@@ -95,7 +95,7 @@ public class ProdutoDAO extends DAO {
                 obj.setPreco((float) resultado.getDouble("preco"));
                 obj.setNome(resultado.getString("nome"));
                 obj.setDescricao(resultado.getString("Descricao"));
-                obj.setFornecedor(resultado.getInt("CodForncedor"));
+                obj.setFornecedor(resultado.getInt("CodFornecedor"));
 
 
 
@@ -111,7 +111,7 @@ public class ProdutoDAO extends DAO {
 
     public List<Produto> ListarTodos() {
         try {
-            PreparedStatement sql = getConexao().prepareStatement("select * from produto");
+            PreparedStatement sql = getConexao().prepareStatement("select * from produtos");
 
             ResultSet resultado = sql.executeQuery();
 
@@ -123,7 +123,7 @@ public class ProdutoDAO extends DAO {
                 obj.setCodigo(resultado.getInt("codProduto"));
                 obj.setNome(resultado.getString("nome"));
                 obj.setDescricao(resultado.getString("descricao"));
-                obj.setFornecedor(resultado.getInt("CodForncedor"));
+                obj.setFornecedor(resultado.getInt("CodFornecedor"));
 
                 lista.add(obj);
             }
@@ -137,7 +137,7 @@ public class ProdutoDAO extends DAO {
 
     public List<Produto> ListarProdutos() {
         try {
-            PreparedStatement sql = getConexao().prepareStatement("select * from Produto");
+            PreparedStatement sql = getConexao().prepareStatement("select * from Produtos");
 
             ResultSet resultado = sql.executeQuery();
 
@@ -150,7 +150,7 @@ public class ProdutoDAO extends DAO {
                 obj.setNome(resultado.getString("Nome"));
                 obj.setPreco(resultado.getFloat("Preco"));
                 obj.setDescricao(resultado.getString("descricao"));
-                obj.setFornecedor(resultado.getInt("CodForncedor"));
+                obj.setFornecedor(resultado.getInt("CodFornecedor"));
 
 
                 lista.add(obj);
@@ -203,7 +203,7 @@ public class ProdutoDAO extends DAO {
                 tmp.setNome(resultado.getString("Nome"));
                 tmp.setPreco(resultado.getFloat("Preco"));
                 tmp.setDescricao(resultado.getString("descricao"));
-                tmp.setFornecedor(resultado.getInt("CodForncedor"));
+                tmp.setFornecedor(resultado.getInt("CodFornecedor"));
                 // Pega o objeto e coloca na lista
                 produtos.add(tmp);
             }
